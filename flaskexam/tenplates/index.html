@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Speech Recognition</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<div>
+		<button id="recordButton">Record</button>
+		<div id="response"></div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$('#recordButton').on('click', function(){
+				$.ajax({
+					url: '/record',
+					method: 'POST',
+					success: function(response){
+						$('#response').html(response);
+					}
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>
